@@ -1,0 +1,13 @@
+{
+	"name"        :"exiftags",
+	"description" :"A tiny wrapper around exiftags (http://johnst.org/sw/exiftags/)",
+	"version"     :"0.1.0",
+	"author"      :"Brian Demant <brian.demant@gmail.com>",
+	"main"        :"./lib/exiftags.js",
+	"homepage"    :"http://github.com/briandemant/exiftags-node",
+	"repository"  :{
+		"type":"git",
+		"url" :"http://github.com/briandemant/exiftags-node"
+	},
+	"engine"      :[ "node >=0.6.10" ]
+}
