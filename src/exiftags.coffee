@@ -1,14 +1,24 @@
 exec = require('child_process').exec
 
-exports.tags = (path, callback)->
-	#console.log "exiftags -avu -s ' | ' '#{path}'"
+exports.read = (path, callback)->
 	exec "exiftags -avuqs '|' '#{path}'", (err, stdout, stderr)->
 		if stdout
 			lines = stdout.split "\n"
 			result = {}
 			for line in lines
-				val = line.split '|'
-				result[val[0]] = val[1] if val[1]
+				[key,value] = line.split '|'
+				continue unless value
+
+				if value.match(/^\d+$/)
+					value = parseInt(value)
+				else if value.match(/^\d+\.\d+$/)
+					value = parseFloat(value)
+				else if parts = value.match(/^(\d+):(\d+):(\d+)\s+(\d+:\d+:\d+)$/)
+					[x,year,month,day,time] = parts
+					value = new Date "#{year}-#{month}-#{day} #{time}"
+
+				result[key] = value
+
 			callback null, result
 		else if stderr
 			callback
