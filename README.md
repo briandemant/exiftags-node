@@ -10,27 +10,35 @@ Usage
 
 It's very simplistic:
 
-    var exiftags = require('exiftags');
-
-    exiftags.read path_to_file, function(err, data) {
-        if (err) throw err;
-        console.log data;
-    }
+	var exiftags = require('exiftags');
+	
+	exiftags.read path_to_file, function(err, data) {
+		if (err) throw err;
+		console.log data;
+	}
 
 
 
 Installation
 -----------
 
-    npm install exiftags
+	npm install exiftags
 
 
 Testing
 -------
 
 the tests are written in mocha and uses expect.js
+ 
+	mocha
+	
+Compiling
+-------
 
-    mocha spec/exiftags_spec.coffee
+The final result is a js file (to avoid coffeescript as runtime dependency) so before committing
+please remember to compile
+
+	coffee -c -o lib/ src/
 
 
 Contributing

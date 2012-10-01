@@ -1,0 +1,4 @@
+--require expect.js
+--reporter dot
+--ui bdd
+--compilers coffee:coffee-script
