@@ -35,7 +35,7 @@ the tests are written in mocha and uses expect.js
 Compiling
 -------
 
-The final result is a js file (to avoid coffeescript as runtime dependency) so before committing
+The final result is a js file (to avoid coffeescript as runtime dependency). So before committing
 please remember to compile
 
 	coffee -c -o lib/ src/
